@@ -1,0 +1,27 @@
+body {
+    font-family: Arial, sans-serif;
+    font-family: "Courier Prime", monospace;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.navbar {
+    background-color: #00796b !important;
+}
+.texto-grande {
+    font-size: 50px;
+    color: #000000;
+    font-weight: bold;
+    text-align: justify;
+    text-align: center;
+}
+.texto-jst {
+    font-size: 12px;
+    color: #000000;
+    font-weight: bold;
+    text-align: justify;
+    text-align: center;
+    margin: 30%;
+    margin-top: 20px;
+}
