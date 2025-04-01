@@ -7,10 +7,10 @@ body {
 }
 
 .navbar {
-    background-color: #00796b !important;
+    background-color: #004b42 !important;
 }
 .texto-grande {
-    font-size: 50px;
+    font-size: 50px; 
     color: #000000;
     font-weight: bold;
     text-align: justify;
