@@ -1,71 +1,144 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8" />
+<head><meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Re-Read</title>
   <link rel="icon" type="image/png" href="./img/icon.png"/>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
+  <link rel="stylesheet" href="./style.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script>
+    function mostrarSeccion(id) {
+      document.querySelectorAll('.seccion').forEach(seccion => {
+        seccion.style.display = 'none';
+      });
+      document.getElementById(id).style.display = 'block';
 
+      // Actualiza clases activas
+      document.querySelectorAll('.menu a').forEach(a => a.classList.remove('active'));
+      document.querySelector(`.menu a[data-target="${id}"]`).classList.add('active');
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      mostrarSeccion('re-read'); // Muestra la primera sección por defecto
+    });
+  </script>
+</head>
+<body class="courier-prime-regular">
   <header>
     <div class="logo-bar">Re-Read</div>
   </header>
 
   <main class="main-content">
-    <!-- Introducción -->
-    <section class="intro">
+    <div class="intro">
       <h2>Re-Read</h2>
-      <p>
+      <p class="courier-prime-regular">
         En Re-Read podrás encontrar libros de segunda mano en perfecto estado. También vender los tuyos.
         Porque siempre hay libros leídos y libros por leer. Por eso Re-compramos y Re-vendemos para que
         nunca te quedes sin ninguno de los dos.
       </p>
-    </section>
+    </div>
 
-    <!-- Menú de navegación -->
-    <nav class="menu">
-      <a href="./index.html" class="active">Re-Read</a>
-      <a href="./index1.html">Libros</a>
-      <a href="./index2.html">ebooks</a>
+    <nav class="menu mb-4">
+      <a href="#" data-target="re-read" onclick="mostrarSeccion('re-read')" class="active">Re-Read</a>
+      <a href="#" data-target="libros" onclick="mostrarSeccion('libros')">Libros</a>
+      <a href="#" data-target="ebooks" onclick="mostrarSeccion('ebooks')">eBooks</a>
     </nav>
 
-    <!-- Contenido principal -->
-    <section class="content-area">
-      
-      <!-- Mensaje principal -->
-      <div class="mensaje">
-        <h3>Nunca la lectura ha sido tan necesaria</h3>
-        <p>
-          En estos tiempos difíciles Re-Read se suma al mensaje de #yomequedoencasa por el bien común de la sociedad.
-        </p>
+    <!-- Sección Re-Read -->
+    <div id="re-read" class="seccion">
+      <div class="content-area">
+        <div class="mensaje">
+          <h3>Nunca la lectura ha sido tan necesaria</h3>
+          <p>En estos tiempos difíciles Re-Read se suma al mensaje de #yomequedoencasa por el bien común de la sociedad.</p>
 
-        <h3>Reduce & Reuse & Read</h3>
-        <p>
-          Somos la librería Eco-Friendly — Re-Read nació pensando en verde con el objetivo de compartir una pasión,
-          la lectura y para expresar una preocupación: si queremos construir un futuro sostenible, es necesario que
-          reduzcamos el consumo y que reutilicemos cuantos más objetos materiales mejor.
-        </p>
+          <h3>Reduce & Reuse & Read</h3>
+          <p>Somos la librería Eco-Friendly — Re-Read nació pensando en verde con el objetivo de compartir una pasión,
+            la lectura y para expresar una preocupación: si queremos construir un futuro sostenible, es necesario que
+            reduzcamos el consumo y que reutilicemos cuantos más objetos materiales mejor.</p>
+        </div>
+        <aside class="sidebar">
+          <h3>Top ventas</h3>
+          <ul>
+            <li>Cien años de soledad.</li>
+            <li>Crónica de una muerte anunciada.</li>
+            <li>El otoño del patriarca.</li>
+            <li>El general en su laberinto.</li>
+          </ul>
+        </aside>
       </div>
+    </div>
 
-      <!-- Sidebar de top ventas -->
-      <aside class="sidebar">
-        <h3>Top ventas</h3>
-        <ul>
-          <li>Cien años de soledad.</li>
-          <li>Crónica de una muerte anunciada.</li>
-          <li>El otoño del patriarca.</li>
-          <li>El general en su laberinto.</li>
-        </ul>
-      </aside>
+    <!-- Sección Libros -->
+    <div id="libros" class="seccion" style="display: none;">
+      <div class="content-area">
+        <div class="mensaje">
+          <h3>Todos los libros tienen el mismo precio</h3>
+          <p>Libros casi nuevos a un precio casi imposible.</p>
+          <div class="precios">
+            <img src="./img/1-libro-3€.gif" alt="1 libro 3€" />
+            <img src="./img/2-libros-5€.gif" alt="2 libros 5€" />
+            <img src="./img/5-libros-10€.gif" alt="5 libros 10€" />
+          </div>
+          <p><strong>¿Te cambias de piso? ¿Tienes que vaciar la casa? ¿O sencillamente necesitas algo más de espacio?</strong></p>
+          <p>En Re-Read compramos tus libros para darles una segunda vida. Los compramos todos al mismo precio: 0,20 euros.</p>
+        </div>
+        <aside class="sidebar">
+          <h3>Top ventas</h3>
+          <ul>
+            <li>Cien años de soledad.</li>
+            <li>Crónica de una muerte anunciada.</li>
+            <li>El otoño del patriarca.</li>
+            <li>El general en su laberinto.</li>
+          </ul>
+        </aside>
+      </div>
+    </div>
 
-    </section>
+    <!-- Sección eBooks -->
+    <div id="ebooks" class="seccion" style="display: none;">
+      <div class="content-area">
+        <section class="ebooks">
+          <h2>Toda la actualidad en eBook</h2>
+          <div class="grid-ebooks">
+            <div class="ebook">
+              <img src="./img/cell.jpeg" alt="Stephen King - Cell" />
+              <p>La historia de un misterioso virus que convierte a los humanos en monstruos.</p>
+            </div>
+            <div class="ebook">
+              <img src="./img/elciclodelhombrelobo.jpeg" alt="Stephen King - Elevación" />
+              <p>Una escalofriante novela que mezcla terror con reflexión social.</p>
+            </div>
+            <div class="ebook">
+              <img src="./img/elresplandor.jpeg" alt="Stephen King - El Resplandor" />
+              <p>Una de las piezas que haría historia en el terror moderno.</p>
+            </div>
+            <div class="ebook">
+              <img src="./img/doctorsleep.jpeg" alt="Stephen King - Doctor Sueño" />
+              <p>Una genial secuela de El Resplandor, ahora con más horror y redención.</p>
+            </div>
+            <div class="ebook">
+              <img src="./img/mientrasescribo.jpeg" alt="Stephen King - Mientras Escribo" />
+              <p>Ahora King nos lleva a su vida interior en un viaje literario y personal.</p>
+            </div>
+          </div>
+        </section>
+        <aside class="sidebar">
+          <h3>Top ventas</h3>
+          <ul>
+            <li>Cien años de soledad.</li>
+            <li>Crónica de una muerte anunciada.</li>
+            <li>El otoño del patriarca.</li>
+            <li>El general en su laberinto.</li>
+          </ul>
+        </aside>
+      </div>
+    </div>
   </main>
 
   <footer>
-    &copy; 2025 Re-Read
+    <p>&copy; 2025 Re-Read</p>
   </footer>
-
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
 </body>
 </html>
+
